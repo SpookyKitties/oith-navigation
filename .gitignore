@@ -22,7 +22,7 @@ coverage
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
-manifests/
+# manifests/
 # Bower dependency directory (https://bower.io/)
 bower_components
 
@@ -59,3 +59,5 @@ typings/
 
 # next.js build output
 .next
+.cache/
+manifests/

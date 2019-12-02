@@ -1,0 +1,192 @@
+{
+  "title": "{library}",
+  "imgUrl": "{lang}-library-img",
+  "shortTitle": "{library}",
+  "href": "/",
+  "navigationItems": [
+    {
+      "title": "{come-follow-me-short-title}",
+      "imgUrl": "{lang}-come-follow-me-short-title-img",
+      "shortTitle": "{come-follow-me-short-title}",
+      "img": "{come-follow-me-img}",
+      "navigationItems": [
+        {
+          "title": "{come-follow-me-for-individuals-and-families-book-of-mormon-2020}",
+          "imgUrl": "{lang}-come-follow-me-for-individuals-and-families-book-of-mormon-2020-img",
+          "shortTitle": "{come-follow-me-for-individuals-and-families-book-of-mormon-2020}",
+          "href": "/manual/come-follow-me-for-individuals-and-families-book-of-mormon-2020/latest",
+          "display": true,
+          "navigationItems": []
+        },
+        {
+          "title": "{come-follow-me-for-sunday-school-book-of-mormon-2020}",
+          "imgUrl": "{lang}-come-follow-me-for-sunday-school-book-of-mormon-2020-img",
+          "shortTitle": "{come-follow-me-for-sunday-school-book-of-mormon-2020}",
+          "href": "/manual/come-follow-me-for-sunday-school-book-of-mormon-2020/latest",
+          "display": true,
+          "navigationItems": []
+        },
+        {
+          "title": "{come-follow-me-for-primary-book-of-mormon-2020}",
+          "imgUrl": "{lang}-come-follow-me-for-primary-book-of-mormon-2020-img",
+          "shortTitle": "{come-follow-me-for-primary-book-of-mormon-2020}",
+          "href": "/manual/come-follow-me-for-primary-book-of-mormon-2020/latest",
+          "display": true,
+          "navigationItems": []
+        }
+      ]
+    },
+    {
+      "title": "{scriptures-and-study-help}",
+      "imgUrl": "{lang}-scriptures-and-study-help-img",
+      "shortTitle": "{scriptures-and-study-help}",
+      "href": "/?p=scriptures",
+      "navigationItems": [
+        {
+          "title": "{old-testament}",
+          "imgUrl": "{lang}-old-testament-img",
+          "shortTitle": "{old-testament}",
+          "href": "gen/1",
+          "display": true,
+          "navigationItems": []
+        },
+        {
+          "title": "{next-testament}",
+          "imgUrl": "{lang}-next-testament-img",
+          "shortTitle": "{next-testament}",
+          "href": "matt/1",
+          "display": true,
+          "navigationItems": []
+        },
+        {
+          "title": "{book-of-mormon}",
+          "imgUrl": "{lang}-book-of-mormon-img",
+          "shortTitle": "{book-of-mormon}",
+          "href": "1-ne/1",
+          "display": true,
+          "navigationItems": []
+        },
+        {
+          "title": "{doctrine-and-covenants}",
+          "imgUrl": "{lang}-doctrine-and-covenants-img",
+          "shortTitle": "{doctrine-and-covenants}",
+          "href": "dc/1",
+          "display": true,
+          "navigationItems": []
+        },
+        {
+          "title": "{pearl-of-great-price}",
+          "imgUrl": "{lang}-pearl-of-great-price-img",
+          "shortTitle": "{pearl-of-great-price}",
+          "href": "moses/1",
+          "display": true,
+          "navigationItems": []
+        },
+        {
+          "title": "{scriptures-and-study-help}",
+          "imgUrl": "{lang}-scriptures-and-study-help-img",
+          "shortTitle": "{scriptures-and-study-help}",
+          "href": "/?p=study",
+          "navigationItems": [
+            {
+              "title": "{guide-to-the-scriptures}",
+              "imgUrl": "{lang}-guide-to-the-scriptures-img",
+              "shortTitle": "{guide-to-the-scriptures}",
+              "href": "gs/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{topical-guide}",
+              "imgUrl": "{lang}-topical-guide-img",
+              "shortTitle": "{topical-guide}",
+              "href": "tg/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{bible-dictionary}",
+              "imgUrl": "{lang}-bible-dictionary-img",
+              "shortTitle": "{bible-dictionary}",
+              "href": "bd/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{index-to-the-tripble-combination}",
+              "imgUrl": "{lang}-index-to-the-tripble-combination-img",
+              "shortTitle": "{index-to-the-tripble-combination}",
+              "href": "triple-index/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{bible-chronology}",
+              "imgUrl": "{lang}-bible-chronology-img",
+              "shortTitle": "{bible-chronology}",
+              "href": "bible-chron/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{harmony-of-the-gospels}",
+              "imgUrl": "{lang}-harmony-of-the-gospels-img",
+              "shortTitle": "{harmony-of-the-gospels}",
+              "href": "harmony/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{joseph-smith-translation-appendix}",
+              "imgUrl": "{lang}-joseph-smith-translation-appendix-img",
+              "shortTitle": "{joseph-smith-translation-appendix}",
+              "href": "jst/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{bible-maps}",
+              "imgUrl": "{lang}-bible-maps-img",
+              "shortTitle": "{bible-maps}",
+              "href": "bible-maps/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{bible-photographs}",
+              "imgUrl": "{lang}-bible-photographs-img",
+              "shortTitle": "{bible-photographs}",
+              "href": "bible-photos/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{church-history-maps}",
+              "imgUrl": "{lang}-church-history-maps-img",
+              "shortTitle": "{church-history-maps}",
+              "href": "history-maps/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{church-history-photographs}",
+              "imgUrl": "{lang}-church-history-photographs-img",
+              "shortTitle": "{church-history-photographs}",
+              "href": "history-photos/introduction",
+              "display": true,
+              "navigationItems": []
+            },
+            {
+              "title": "{abbreviation}",
+              "imgUrl": "{lang}-abbreviation-img",
+              "shortTitle": "{abbreviation}",
+              "href": "quad/abbreviations",
+              "display": true,
+              "navigationItems": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

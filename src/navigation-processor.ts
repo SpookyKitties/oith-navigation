@@ -1,29 +1,29 @@
-import { decode } from "he";
-import { uniq, isEqual } from "lodash";
-import { forkJoin, EMPTY, of, Observable } from "rxjs";
-import { flatMap, map } from "rxjs/operators";
-import { NavigationItem } from "./navigation-item";
-import { writeFile$ } from "./fs$";
+import { decode } from 'he';
+import { uniq, isEqual } from 'lodash';
+import { forkJoin, EMPTY, of, Observable } from 'rxjs';
+import { flatMap, map } from 'rxjs/operators';
+import { NavigationItem } from './navigation-item';
+import { writeFile$ } from './fs$';
 export function parseLanguage(docuemnt: CheerioStatic) {
-  const htmlE = docuemnt("html");
-  if (htmlE && htmlE.attr("lang") !== "") {
-    return of(htmlE.attr("lang") as string);
+  const htmlE = docuemnt('html');
+  if (htmlE && htmlE.attr('lang') !== '') {
+    return of(htmlE.attr('lang') as string);
   }
-  throw new Error("No valid lang found");
+  throw new Error('No valid lang found');
 }
 
 export function parseDocID($: CheerioStatic): Observable<string> {
-  const htmlE = $("html");
-  if (htmlE && htmlE.attr("data-uri")) {
+  const htmlE = $('html');
+  if (htmlE && htmlE.attr('data-uri')) {
     const r = /^.+\/(.+?)\/(.+?)(\.html$|$)/g.exec(
-      htmlE.attr("data-uri") as string
+      htmlE.attr('data-uri') as string,
     );
 
     if (r) {
       return parseLanguage($).pipe(
         map(l => {
           return `${l}-${r[1]}-${r[2]}`;
-        })
+        }),
       );
     }
   }
@@ -32,11 +32,11 @@ export function parseDocID($: CheerioStatic): Observable<string> {
 }
 
 function parseNavId($: CheerioStatic) {
-  return parseDocID($).pipe(map(o => o.replace("_manifest", "manifest")));
+  return parseDocID($).pipe(map(o => o.replace('_manifest', 'manifest')));
 }
 
 function parseNavTitle($: CheerioStatic) {
-  return of(decode($("body > header > h1").text()));
+  return of(decode($('body > header > h1').text()));
 }
 function parseNavShortTitle($: CheerioStatic) {
   return of(decode($('head [type="short-citation"]').text()));
@@ -44,7 +44,7 @@ function parseNavShortTitle($: CheerioStatic) {
 
 function parseChildNodeNames(element: CheerioElement) {
   return uniq(
-    element.children.filter(n => n.name !== undefined).map(n => n.name)
+    element.children.filter(n => n.name !== undefined).map(n => n.name),
   );
 }
 
@@ -59,17 +59,17 @@ function parseNavigationItems($: CheerioStatic, listItems: CheerioElement[]) {
 }
 
 function parseNavigationItem($: CheerioStatic, li: CheerioElement) {
-  const dateStart = li.attribs["data-date-start"];
-  const dateEnd = li.attribs["data-date-end"];
+  const dateStart = li.attribs['data-date-start'];
+  const dateEnd = li.attribs['data-date-end'];
   const href = $(li)
-    .find("a")
-    .attr("href");
+    .find('a')
+    .attr('href');
   const title = $(li)
-    .find(".title")
+    .find('.title')
     .first()
     .text();
   const shortTitle = $(li)
-    .find(".title,.title-number")
+    .find('.title,.title-number')
     .first()
     .text();
   return new NavigationItem(
@@ -78,7 +78,7 @@ function parseNavigationItem($: CheerioStatic, li: CheerioElement) {
     href,
     undefined,
     dateStart,
-    dateEnd
+    dateEnd,
   );
 }
 
@@ -100,8 +100,8 @@ function parseNav($: CheerioStatic, elem: CheerioElement) {
   const childNavigation = parseNavigationItems(
     $,
     $(elem)
-      .find("li")
-      .toArray()
+      .find('li')
+      .toArray(),
   );
   const nav = new NavigationItem(
     monthOrTitle,
@@ -109,7 +109,7 @@ function parseNav($: CheerioStatic, elem: CheerioElement) {
     undefined,
     childNavigation,
     undefined,
-    undefined
+    undefined,
   );
 
   // return { test1: nav };
@@ -118,16 +118,16 @@ function parseNav($: CheerioStatic, elem: CheerioElement) {
 // Top Level Navigation is are items that are only children of the manifest, like single chapter books. Jarom and Omni are examples of this, or the Introduction of back matter
 function comeFollowMeAndTopLevelNavigation(
   $: CheerioStatic,
-  element: CheerioElement
+  element: CheerioElement,
 ) {
   // li represents top level navigation
-  const li = ["li"];
+  const li = ['li'];
 
   //aUL represents Come Follow Me Months
-  const aUL = ["a", "ul"];
+  const aUL = ['a', 'ul'];
 
   // Similar ot Come Follow Me, just with title and short title instead of months
-  const pUL = ["p", "ul"];
+  const pUL = ['p', 'ul'];
 
   const navItems = filterTextNodes(element).map(c => {
     const nodeNames = parseChildNodeNames(c);
@@ -146,24 +146,24 @@ function comeFollowMeAndTopLevelNavigation(
 }
 
 function parseManifest($: CheerioStatic) {
-  const topLevel = $("body > nav.manifest > *")
+  const topLevel = $('body > nav.manifest > *')
     .toArray()
-    .filter(o => o.name !== undefined && !$(o).hasClass("doc-map-index"))
+    .filter(o => o.name !== undefined && !$(o).hasClass('doc-map-index'))
     .map(topLevelElement => {
       const childNames = parseChildNodeNames(topLevelElement);
 
-      const classList = topLevelElement.attribs["class"];
+      const classList = topLevelElement.attribs['class'];
 
       // This is for navigation item children
-      const headerUL = ["header", "ul"];
+      const headerUL = ['header', 'ul'];
 
       // This is Come Follow Me Navigation;
-      const li = ["li"];
+      const li = ['li'];
 
       if (isEqual(childNames, li)) {
         return comeFollowMeAndTopLevelNavigation($, topLevelElement);
       }
-      const aUL = ["a", "ul"];
+      const aUL = ['a', 'ul'];
       if (isEqual(childNames, headerUL)) {
         // filterTextNodes(topLevelElement).map(e => {
         // });
@@ -177,25 +177,23 @@ function parseManifest($: CheerioStatic) {
 }
 
 export function navigationProcessor($: CheerioStatic) {
-  forkJoin(
+  return forkJoin(
     parseNavId($),
     parseNavTitle($),
     parseNavShortTitle($),
-    parseManifest($) //.pipe(flatMap$),
-  )
-    .pipe(
-      map(([id, title, shortTitle, navigation]) => {
-        const navItem = new NavigationItem(
-          title,
-          shortTitle,
-          undefined,
-          navigation,
-          undefined,
-          undefined
-        );
-        return writeFile$(`./${id}.json`, JSON.stringify(navItem));
-      }),
-      flatMap(o => o)
-    )
-    .subscribe();
+    parseManifest($), //.pipe(flatMap$),
+  ).pipe(
+    map(([id, title, shortTitle, navigation]) => {
+      const navItem = new NavigationItem(
+        title,
+        shortTitle,
+        undefined,
+        navigation,
+        undefined,
+        undefined,
+      );
+      return writeFile$(`./.cache/${id}.json`, JSON.stringify(navItem));
+    }),
+    flatMap(o => o),
+  );
 }
