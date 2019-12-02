@@ -37,9 +37,10 @@ function parseNavId($: CheerioStatic) {
 
 function parseNavTitle($: CheerioStatic) {
   return of(decode($('body > header > h1').text()));
-}
+} 
 function parseNavShortTitle($: CheerioStatic) {
-  return of(decode($('head [type="short-citation"]').text()));
+  
+  return of(decode($('lds\\:title[type="short-citation"]').text()));
 }
 
 function parseChildNodeNames(element: CheerioElement) {
@@ -191,6 +192,7 @@ export function navigationProcessor($: CheerioStatic) {
         navigation,
         undefined,
         undefined,
+        id
       );
       return writeFile$(`./.cache/${id}.json`, JSON.stringify(navItem));
     }),

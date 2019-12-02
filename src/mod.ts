@@ -5,15 +5,17 @@ import normalizePath from 'normalize-path';
 import { flatMap$ } from './flatMap$';
 import { map, flatMap, toArray } from 'rxjs/operators';
 import { emptyDir, readFile } from 'fs-extra';
-import { emptyDir$ } from './fs$';
+import { emptyDir$, readFile$ } from './fs$';
 import { navigationProcessor } from './navigation-processor';
-
+import { primaryManifest } from './primary-manifest.json';
+import { NavigationItem } from './navigation-item';
+import { mergeNavigation } from './mergeNavigation';
 
 const makeCacheFolder = () => {
   return emptyDir$('./.cache');
 };
 
-const readFiles = () => {
+const readManifests = () => {
   return of(fastGlob(normalizePath('./manifests/**/**'))).pipe(
     flatMap$,
     flatMap(o => o),
@@ -24,17 +26,16 @@ const readFiles = () => {
   );
 };
 
-export function mergeNavigation() {
-  const langs = ['eng', 'fra', 'jpn', 'pes', 'por', 'spa', 'tha'];
-}
-
-forkJoin(makeCacheFolder(), readFiles())
+forkJoin(makeCacheFolder(), readManifests())
   .pipe(
     flatMap(o => o[1]),
     map(o => navigationProcessor(o)),
     flatMap$,
     toArray(),
-    map(o => console.log(o.length)),
+    map(() => {
+      return mergeNavigation();
+    }),
+    flatMap(o => o),
   )
   .subscribe();
 

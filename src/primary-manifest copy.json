@@ -53,7 +53,7 @@
             "href": "gen/1",
             "display": true,
             "navigationItems": [],
-            "id": "{lang}-ot-manifest"
+            "id": "{lang}-old-testament-manifest"
           },
           {
             "title": "{new-testament}",
@@ -62,7 +62,7 @@
             "href": "matt/1",
             "display": true,
             "navigationItems": [],
-            "id": "{lang}-nt-manifest"
+            "id": "{lang}-new-testament-manifest"
           },
           {
             "title": "{book-of-mormon}",
@@ -71,7 +71,7 @@
             "href": "1-ne/1",
             "display": true,
             "navigationItems": [],
-            "id": "{lang}-bofm-manifest"
+            "id": "{lang}-book-of-mormon-manifest"
           },
           {
             "title": "{doctrine-and-covenants}",
@@ -80,7 +80,7 @@
             "href": "dc/1",
             "display": true,
             "navigationItems": [],
-            "id": "{lang}-dc-testament-manifest"
+            "id": "{lang}-doctrine-and-covenants-manifest"
           },
           {
             "title": "{pearl-of-great-price}",
@@ -89,7 +89,7 @@
             "href": "moses/1",
             "display": true,
             "navigationItems": [],
-            "id": "{lang}-pgp-manifest"
+            "id": "{lang}-pearl-of-great-price-manifest"
           },
           {
             "title": "{scriptures-and-study-help}",
@@ -104,7 +104,7 @@
                 "href": "gs/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-gs-manifest"
+                "id": "{lang}-guide-to-the-scriptures-manifest"
               },
               {
                 "title": "{topical-guide}",
@@ -113,7 +113,7 @@
                 "href": "tg/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-tg-manifest"
+                "id": "{lang}-topical-guide-manifest"
               },
               {
                 "title": "{bible-dictionary}",
@@ -122,7 +122,7 @@
                 "href": "bd/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-bd-manifest"
+                "id": "{lang}-bible-dictionary-manifest"
               },
               {
                 "title": "{index-to-the-triple-combination}",
@@ -131,7 +131,7 @@
                 "href": "triple-index/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-triple-index-manifest"
+                "id": "{lang}-bofm-manifest"
               },
               {
                 "title": "{bible-chronology}",
@@ -140,7 +140,7 @@
                 "href": "bible-chron/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-bible-chron-manifest"
+                "id": "{lang}-bible-chronology-manifest"
               },
               {
                 "title": "{harmony-of-the-gospels}",
@@ -149,7 +149,7 @@
                 "href": "harmony/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-harmony-manifest"
+                "id": "{lang}-harmony-of-the-gospels-manifest"
               },
               {
                 "title": "{joseph-smith-translation-appendix}",
@@ -158,7 +158,7 @@
                 "href": "jst/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-jst-appendix-manifest"
+                "id": "{lang}-joseph-smith-translation-appendix-manifest"
               },
               {
                 "title": "{bible-maps}",
@@ -176,7 +176,7 @@
                 "href": "bible-photos/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-bible-photos-manifest"
+                "id": "{lang}-bible-photographs-manifest"
               },
               {
                 "title": "{church-history-maps}",
@@ -185,7 +185,7 @@
                 "href": "history-maps/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-history-maps-manifest"
+                "id": "{lang}-church-history-maps-manifest"
               },
               {
                 "title": "{church-history-photographs}",
@@ -194,7 +194,7 @@
                 "href": "history-photos/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-history-photos-manifest"
+                "id": "{lang}-church-history-photographs-manifest"
               },
               {
                 "title": "{abbreviation}",
@@ -203,7 +203,7 @@
                 "href": "quad/abbreviations",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-quad-manifest"
+                "id": "{lang}-abbreviation-manifest"
               }
             ]
           }

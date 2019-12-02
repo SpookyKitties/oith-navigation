@@ -1,0 +1,58 @@
+{
+  "primaryManifestl18n": {
+    "{library}": {
+      "eng": "Library",
+      "fra": "Bibliothèque",
+      "jpn": "ライブラリー",
+      "pes": "کتابخانه",
+      "por": "Biblioteca",
+      "spa": "Biblioteca",
+      "tha": "คลังค้นคว้า"
+    },
+    "{come-follow-me-short-title}": {
+      "eng": "Come, Follow Me",
+      "fra": "",
+      "jpn": "",
+      "pes": "",
+      "por": "",
+      "spa": "",
+      "tha": ""
+    },
+    "{come-follow-me-for-individuals-and-families-book-of-mormon-2020}": {
+      "eng": "Individuals and Families",
+      "fra": "",
+      "jpn": "",
+      "pes": "",
+      "por": "",
+      "spa": "",
+      "tha": ""
+    },
+    "{come-follow-me-for-sunday-school-book-of-mormon-2020}": {
+      "eng": "Sunday School",
+      "fra": "",
+      "jpn": "",
+      "pes": "",
+      "por": "",
+      "spa": "",
+      "tha": ""
+    },
+    "{come-follow-me-for-primary-book-of-mormon-2020}": {
+      "eng": "Primary",
+      "fra": "",
+      "jpn": "",
+      "pes": "",
+      "por": "",
+      "spa": "",
+      "tha": ""
+    },
+    "{scriptures-and-study}": {
+      "eng": "Scriptures and Study",
+      "fra": "Écritures et étude",
+      "jpn": "聖文と研究",
+      "pes": "کتب مقدّس",
+      "por": "Escrituras e Estudo",
+      "spa": "",
+      "tha": ""
+    }
+  }
+}
