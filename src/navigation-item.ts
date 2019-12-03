@@ -5,7 +5,9 @@ export class NavigationItem {
   public dateEnd?: string;
   public navigationItems?: NavigationItem[];
   public href?: string;
-  public id?: string ;
+  public id?: string;
+  public imgUrl?: string;
+  public display?: boolean;
 
   public constructor(
     title: string,

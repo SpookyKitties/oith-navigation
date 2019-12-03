@@ -9,7 +9,6 @@
         "title": "{come-follow-me-short-title}",
         "imgUrl": "{lang}-come-follow-me-short-title-img",
         "shortTitle": "{come-follow-me-short-title}",
-        "img": "{come-follow-me-img}",
         "navigationItems": [
           {
             "title": "{come-follow-me-for-individuals-and-families-book-of-mormon-2020}",
@@ -41,9 +40,9 @@
         ]
       },
       {
-        "title": "{scriptures-and-study-help}",
-        "imgUrl": "{lang}-scriptures-and-study-help-img",
-        "shortTitle": "{scriptures-and-study-help}",
+        "title": "{scriptures-and-study}",
+        "imgUrl": "{lang}-scriptures-and-study-img",
+        "shortTitle": "{scriptures-and-study}",
         "href": "/?p=scriptures",
         "navigationItems": [
           {
@@ -92,9 +91,9 @@
             "id": "{lang}-pgp-manifest"
           },
           {
-            "title": "{scriptures-and-study-help}",
-            "imgUrl": "{lang}-scriptures-and-study-help-img",
-            "shortTitle": "{scriptures-and-study-help}",
+            "title": "{scriptures-and-study}",
+            "imgUrl": "{lang}-scriptures-and-study-img",
+            "shortTitle": "{scriptures-and-study}",
             "href": "/?p=study",
             "navigationItems": [
               {
@@ -158,7 +157,7 @@
                 "href": "jst/introduction",
                 "display": true,
                 "navigationItems": [],
-                "id": "{lang}-jst-appendix-manifest"
+                "id": "{lang}-jst-manifest"
               },
               {
                 "title": "{bible-maps}",
