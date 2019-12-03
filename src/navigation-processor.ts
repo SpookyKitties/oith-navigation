@@ -1,9 +1,10 @@
 import { decode } from 'he';
 import { uniq, isEqual } from 'lodash';
 import { forkJoin, EMPTY, of, Observable } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { flatMap, map, toArray } from 'rxjs/operators';
 import { NavigationItem } from './navigation-item';
 import { writeFile$ } from './fs$';
+import { flatMap$ } from './flatMap$';
 export function parseLanguage(docuemnt: CheerioStatic) {
   const htmlE = docuemnt('html');
   if (htmlE && htmlE.attr('lang') !== '') {
@@ -37,9 +38,8 @@ function parseNavId($: CheerioStatic) {
 
 function parseNavTitle($: CheerioStatic) {
   return of(decode($('body > header > h1').text()));
-} 
+}
 function parseNavShortTitle($: CheerioStatic) {
-  
   return of(decode($('lds\\:title[type="short-citation"]').text()));
 }
 
@@ -138,19 +138,30 @@ function comeFollowMeAndTopLevelNavigation(
       return parseTopLevelNav($, c);
     }
   });
+
   const firstChild = element.children.filter(n => n.name !== undefined)[0];
 
   const navItem = parseNavigationItem($, firstChild);
   navItem.navigationItems = navItems;
 
-  return navItem;
+  return navItems;
 }
 
 function parseManifest($: CheerioStatic) {
-  const topLevel = $('body > nav.manifest > *')
+  const items = $('body > nav.manifest > *')
     .toArray()
-    .filter(o => o.name !== undefined && !$(o).hasClass('doc-map-index'))
-    .map(topLevelElement => {
+    .filter(o => o.name !== undefined && !$(o).hasClass('doc-map-index'));
+  if (items.length === 1) {
+    return of(comeFollowMeAndTopLevelNavigation($, items[0]));
+  }
+
+  return of(
+    $('body > nav.manifest > *')
+      .toArray()
+      .filter(o => o.name !== undefined && !$(o).hasClass('doc-map-index')),
+  ).pipe(
+    flatMap$,
+    map(topLevelElement => {
       const childNames = parseChildNodeNames(topLevelElement);
 
       const classList = topLevelElement.attribs['class'];
@@ -162,19 +173,50 @@ function parseManifest($: CheerioStatic) {
       const li = ['li'];
 
       if (isEqual(childNames, li)) {
-        return comeFollowMeAndTopLevelNavigation($, topLevelElement);
+        const nav = comeFollowMeAndTopLevelNavigation($, topLevelElement);
+        return of(nav).pipe(flatMap(o => o));
       }
       const aUL = ['a', 'ul'];
       if (isEqual(childNames, headerUL)) {
         // filterTextNodes(topLevelElement).map(e => {
         // });
 
-        return parseNav($, topLevelElement);
+        return of(parseNav($, topLevelElement));
       }
-      return undefined;
-    })
-    .filter(o => o !== undefined);
-  return of(topLevel as NavigationItem[]);
+      return EMPTY;
+    }),
+    flatMap$,
+    toArray(),
+  );
+  // const topLevel = $('body > nav.manifest > *')
+  //   .toArray()
+  //   .filter(o => o.name !== undefined && !$(o).hasClass('doc-map-index'))
+  //   .map(topLevelElement => {
+  //     const childNames = parseChildNodeNames(topLevelElement);
+
+  //     const classList = topLevelElement.attribs['class'];
+
+  //     // This is for navigation item children
+  //     const headerUL = ['header', 'ul'];
+
+  //     // This is Come Follow Me Navigation;
+  //     const li = ['li'];
+
+  //     if (isEqual(childNames, li)) {
+  //       const nav = comeFollowMeAndTopLevelNavigation($, topLevelElement);
+  //       return of(nav).pipe(flatMap(o => o));
+  //     }
+  //     const aUL = ['a', 'ul'];
+  //     if (isEqual(childNames, headerUL)) {
+  //       // filterTextNodes(topLevelElement).map(e => {
+  //       // });
+
+  //       return of(parseNav($, topLevelElement));
+  //     }
+  //     return EMPTY;
+  //   });
+
+  // return topLevel as Observable<NavigationItem[]>;
 }
 
 export function navigationProcessor($: CheerioStatic) {
@@ -192,8 +234,10 @@ export function navigationProcessor($: CheerioStatic) {
         navigation,
         undefined,
         undefined,
-        id
+        id,
       );
+      console.log(id);
+      
       return writeFile$(`./.cache/${id}.json`, JSON.stringify(navItem));
     }),
     flatMap(o => o),
