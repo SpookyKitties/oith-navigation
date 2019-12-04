@@ -147,7 +147,26 @@ function comeFollowMeAndTopLevelNavigation(
   return navItems;
 }
 
+function fixHrefs($: CheerioStatic) {
+  const dataUriReg = /^(\/.+?\/)(.+?)(\/.+)/g.exec(
+    $('[data-uri]')
+      .first()
+      .attr('data-uri'),
+  );
+  const testament = dataUriReg ? dataUriReg[2] : '';
+  $('[href]')
+    .toArray()
+    .filter(
+      h =>
+        !$(h)
+          .attr('href')
+          .includes('/'),
+    )
+    .map(h => (h.attribs['href'] = `${testament}/${h.attribs['href']}`));
+}
 function parseManifest($: CheerioStatic) {
+  fixHrefs($);
+
   const items = $('body > nav.manifest > *')
     .toArray()
     .filter(o => o.name !== undefined && !$(o).hasClass('doc-map-index'));
@@ -237,7 +256,7 @@ export function navigationProcessor($: CheerioStatic) {
         id,
       );
       console.log(id);
-      
+
       return writeFile$(`./.cache/${id}.json`, JSON.stringify(navItem));
     }),
     flatMap(o => o),
