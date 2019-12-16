@@ -46,7 +46,17 @@ export function mergeNavigation() {
     map(navFiles => {
       navFiles;
 
-      const langs = ['eng', 'fra', 'jpn', 'pes', 'por', 'spa', 'tha'];
+      const langs = [
+        'eng',
+        'fra',
+        'jpn',
+        'pes',
+        'por',
+        'spa',
+        'tha',
+        'zhs',
+        'zho',
+      ];
       return of(langs).pipe(
         flatMap$,
         map(lang => {
