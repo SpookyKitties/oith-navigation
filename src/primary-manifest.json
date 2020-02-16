@@ -36,6 +36,33 @@
             "display": true,
             "navigationItems": [],
             "id": "{lang}-come-follow-me-for-primary-book-of-mormon-2020-manifest"
+          },
+          {
+            "title": "{come-follow-me-for-individuals-and-families-new-testament}",
+            "imgUrl": "{lang}-come-follow-me-for-individuals-and-families-new-testament-img",
+            "shortTitle": "{come-follow-me-for-individuals-and-families-new-testament}",
+            "href": "/manual/come-follow-me-for-individuals-and-families-new-testament/latest",
+            "display": true,
+            "navigationItems": [],
+            "id": "{lang}-come-follow-me-for-individuals-and-families-new-testament-manifest"
+          },
+          {
+            "title": "{come-follow-me-for-sunday-school-new-testament}",
+            "imgUrl": "{lang}-come-follow-me-for-sunday-school-new-testament-img",
+            "shortTitle": "{come-follow-me-for-sunday-school-new-testament}",
+            "href": "/manual/come-follow-me-for-sunday-school-new-testament/latest",
+            "display": true,
+            "navigationItems": [],
+            "id": "{lang}-come-follow-me-for-sunday-school-new-testament-manifest"
+          },
+          {
+            "title": "{come-follow-me-for-primary-new-testament}",
+            "imgUrl": "{lang}-come-follow-me-for-primary-new-testament-img",
+            "shortTitle": "{come-follow-me-for-primary-new-testament}",
+            "href": "/manual/come-follow-me-for-primary-new-testament/latest",
+            "display": true,
+            "navigationItems": [],
+            "id": "{lang}-come-follow-me-for-primary-new-testament-manifest"
           }
         ]
       },
@@ -91,9 +118,9 @@
             "id": "{lang}-pgp-manifest"
           },
           {
-            "title": "{scriptures-and-study}",
+            "title": "{study-help}",
             "imgUrl": "{lang}-scriptures-and-study-img",
-            "shortTitle": "{scriptures-and-study}",
+            "shortTitle": "{study-help}",
             "href": "/?p=study",
             "navigationItems": [
               {

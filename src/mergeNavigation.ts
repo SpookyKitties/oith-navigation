@@ -70,7 +70,6 @@ export function mergeNavigation() {
             map(o => o.concat([nav])),
             map((o: NavigationItem[]) => {
               addNavItem(lang, o, navFiles);
-              console.log(nav.navigationItems ? nav.navigationItems.length : 9);
               // nav.imgUrl=
               if (nav.imgUrl) {
                 nav.imgUrl = nav.imgUrl.replace('{lang}', lang);

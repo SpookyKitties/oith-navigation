@@ -46,7 +46,16 @@
       "tha": ""
     },
     "{scriptures-and-study}": {
-      "eng": "Scriptures and Study",
+      "eng": "Scriptures",
+      "fra": "Écritures et étude",
+      "jpn": "聖文と研究",
+      "pes": "کتب مقدّس",
+      "por": "Escrituras e Estudo",
+      "spa": "",
+      "tha": ""
+    },
+    "{study-helps}": {
+      "eng": "Scriptures",
       "fra": "Écritures et étude",
       "jpn": "聖文と研究",
       "pes": "کتب مقدّس",
