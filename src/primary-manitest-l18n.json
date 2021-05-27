@@ -7,6 +7,7 @@
       "pes": "کتابخانه",
       "por": "Biblioteca",
       "spa": "Biblioteca",
+      "deu": "Bibliothek",
       "tha": "คลังค้นคว้า"
     },
     "{come-follow-me-short-title}": {
@@ -15,6 +16,7 @@
       "jpn": "",
       "pes": "",
       "por": "",
+      "deu": "",
       "spa": "",
       "tha": ""
     },
@@ -24,6 +26,7 @@
       "jpn": "",
       "pes": "",
       "por": "",
+      "deu": "",
       "spa": "",
       "tha": ""
     },
@@ -33,6 +36,7 @@
       "jpn": "",
       "pes": "",
       "por": "",
+      "deu": "",
       "spa": "",
       "tha": ""
     },
@@ -42,25 +46,18 @@
       "jpn": "",
       "pes": "",
       "por": "",
+      "deu": "",
       "spa": "",
       "tha": ""
     },
     "{scriptures-and-study}": {
-      "eng": "Scriptures",
+      "eng": "Scriptures and Study",
       "fra": "Écritures et étude",
       "jpn": "聖文と研究",
       "pes": "کتب مقدّس",
       "por": "Escrituras e Estudo",
       "spa": "",
-      "tha": ""
-    },
-    "{study-helps}": {
-      "eng": "Scriptures",
-      "fra": "Écritures et étude",
-      "jpn": "聖文と研究",
-      "pes": "کتب مقدّس",
-      "por": "Escrituras e Estudo",
-      "spa": "",
+      "deu": "",
       "tha": ""
     }
   }

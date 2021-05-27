@@ -11,8 +11,8 @@ const loadNavFiles = () => {
   return of(fastGlob(normalizePath('./.cache/**/**'))).pipe(
     flatMap$,
     flatMap$,
-    map(o =>
-      readFile$(o).pipe(map(o => JSON.parse(o.toString()) as NavigationItem)),
+    map((o) =>
+      readFile$(o).pipe(map((o) => JSON.parse(o.toString()) as NavigationItem)),
     ),
     flatMap$,
     toArray(),
@@ -26,10 +26,10 @@ const flattenPrimaryManifest = (
 ): Observable<NavigationItem[]> => {
   return of(navItems).pipe(
     flatMap$,
-    map(navItem => {
+    map((navItem) => {
       if (navItem.navigationItems && navItem.navigationItems.length > 0) {
         return flattenPrimaryManifest(navItem.navigationItems).pipe(
-          map(o => o.concat([navItem])),
+          map((o) => o.concat([navItem])),
           flatMap$,
         );
       }
@@ -43,7 +43,7 @@ const flattenPrimaryManifest = (
 
 export function mergeNavigation() {
   return loadNavFiles().pipe(
-    map(navFiles => {
+    map((navFiles) => {
       navFiles;
 
       const langs = [
@@ -56,10 +56,11 @@ export function mergeNavigation() {
         'tha',
         'zhs',
         'zho',
+        'deu',
       ];
       return of(langs).pipe(
         flatMap$,
-        map(lang => {
+        map((lang) => {
           const nav = JSON.parse(
             JSON.stringify(primaryManifest),
           ) as NavigationItem; // Object.assign({}, primaryManifest);
@@ -67,7 +68,7 @@ export function mergeNavigation() {
           return flattenPrimaryManifest(
             nav.navigationItems ? nav.navigationItems : [],
           ).pipe(
-            map(o => o.concat([nav])),
+            map((o) => o.concat([nav])),
             map((o: NavigationItem[]) => {
               addNavItem(lang, o, navFiles);
               // nav.imgUrl=
@@ -97,11 +98,11 @@ function setValue<T, T2 extends keyof T>(
   vals: {},
 ) {
   try {
-    if (((item[key] as unknown) as string).startsWith('{')) {
+    if ((item[key] as unknown as string).startsWith('{')) {
       // console.log(item[key]);
       // console.log(vals[(item[key] as unknown) as string]);
 
-      item[key] = vals[(item[key] as unknown) as string][lang];
+      item[key] = vals[item[key] as unknown as string][lang];
     }
   } catch (error) {}
 }
@@ -115,7 +116,7 @@ function addNavItem(
   navItems: NavigationItem[],
   navFiles: NavigationItem[],
 ) {
-  navItems.map(i => {
+  navItems.map((i) => {
     if (i.imgUrl) {
       // console.log(i.imgUrl);
 
@@ -123,8 +124,8 @@ function addNavItem(
     }
     try {
       const id = (i['id'] as string).replace('{lang}', lang);
-      const exist = navFiles.find(navFile => navFile.id === id) !== undefined;
-      const navItem = navFiles.find(navFile => navFile.id === id);
+      const exist = navFiles.find((navFile) => navFile.id === id) !== undefined;
+      const navItem = navFiles.find((navFile) => navFile.id === id);
 
       if (navItem) {
         // console.log(id);
